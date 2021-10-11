@@ -5,7 +5,7 @@ This SDK is developed for iOS using Swift 5.4, and utilizes `URLSession` in orde
 ## Overview
 Jupita is an API product that provides deep learning powered touchpoint analytics. Within the SDK documentation, `messageType` will simply refer to who is speaking. `messageType` 0 = `touchpoint`, and `messageType` 1 = `input`, although these labels are handled by the SDK.
 
-The required parameters for the APIs include setting `messageType`, along with assigning an `touchpointId` + `inputId` to be passed - how this is structured or deployed is completely flexible and customizable. Please note when assigning the `touchpointId` that no data will be available for that particular touchpoint until the touchpoint has sent at least 1 utterance via the `dump` API. 
+The required parameters for the APIs include setting `messageType`, along with assigning an `touchpointID` + `inputID` to be passed - how this is structured or deployed is completely flexible and customizable. Please note when assigning the `touchpointID` that no data will be available for that particular touchpoint until the touchpoint has sent at least 1 utterance via the `dump` API. 
 
 ## APIs
 There is one API within the Jupita product – `dump`:
@@ -67,7 +67,7 @@ touchpoint.dump(text: "Hello", inputID: "3", messageType:  touchpoint.INPUT) { (
 
 ### Error handling
 
-The SDK throws one error, which occurs if the user input is not JSON compatible. This can be incorrect usage of strings when passed on to the Touchpoint methods. This error may also arise if the `messageType` set in the dump method is not 1 or 0, or the model name in rating method is not set to `JupitaV1`.
+The SDK throws one error, which occurs if the user input is not JSON compatible. This can be incorrect usage of strings when passed on to the Touchpoint methods. This error may also arise if the `messageType` set in the dump method is not 1 or 0.
 
 ### Error codes 
 
@@ -79,7 +79,7 @@ Use Step 1 and 2 so that the Jupita iOS SDK is available within the scope of the
 
 ### Classes
 
-The available product under the iOS SDK is Jupita. Jupita can be constructed directly using the public constructor however it is highly recommended to use the `Touchpoint` class to build the product. This will ensure that mistakes are not made while building the iOS Jupita SDK.
+The available product under the iOS SDK is Jupita. Jupita can be constructed directly using the public constructor however it is highly recommended to use the `Jupita` class to build the product. This will ensure that mistakes are not made while building the iOS Jupita SDK.
 
 ```
 let token:String = “your-token”; 
