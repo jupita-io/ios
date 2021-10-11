@@ -1,14 +1,14 @@
-# Jupita Callisto iOS SDK
+# Jupita iOS SDK
 
-This SDK is developed for iOS using Swift 5.4, and utilizes `URLSession` in order to create the required API call requests. This library will allow you to make the required `dump` API calls with Jupita Callisto. API call is made asynchronously, thus there are event listeners available to handle the API results.
+This SDK is developed for iOS using Swift 5.4, and utilizes `URLSession` in order to create the required API call requests. This library will allow you to make the required `dump` API calls with Jupita. API call is made asynchronously, thus there are event listeners available to handle the API results.
 
 ## Overview
-Jupita Callisto is an API product that provides deep learning powered touchpoint analytics. Within the SDK documentation, `messageType` will simply refer to who is speaking. `messageType` 0 = `touchpoint`, and `messageType` 1 = `input`, although these labels are handled by the SDK.
+Jupita is an API product that provides deep learning powered touchpoint analytics. Within the SDK documentation, `messageType` will simply refer to who is speaking. `messageType` 0 = `touchpoint`, and `messageType` 1 = `input`, although these labels are handled by the SDK.
 
 The required parameters for the APIs include setting `messageType`, along with assigning an `touchpointId` + `inputId` to be passed - how this is structured or deployed is completely flexible and customizable. Please note when assigning the `touchpointId` that no data will be available for that particular touchpoint until the touchpoint has sent at least 1 utterance via the `dump` API. 
 
 ## APIs
-There is one API within the Jupita Callisto product – `dump`:
+There is one API within the Jupita product – `dump`:
 
 - `Dump` allows you to dump each communication utterance.
 
@@ -24,7 +24,7 @@ Import the Jupita.framework into your class.
 
 #### Step 3
 
-Build Jupita Callisto, in the example below '2' has been used to represent the `touchpointID`
+Build Jupita, in the example below '2' has been used to represent the `touchpointID`
 
 ```
 let token:String = “authentication token”; 
@@ -75,11 +75,11 @@ Error codes thrown are 401 when the token is incorrect and 400 when there is an 
 
 ### Libraries
 
-Use Step 1 and 2 so that the Jupita Callisto iOS SDK is available within the scope of the project. Currently the Jupita Callisto iOS SDK is dependent on `URLSession`.
+Use Step 1 and 2 so that the Jupita iOS SDK is available within the scope of the project. Currently the Jupita iOS SDK is dependent on `URLSession`.
 
 ### Classes
 
-The available product under the iOS SDK is Jupita Callisto. Jupita Callisto can be constructed directly using the public constructor however it is highly recommended to use the `Touchpoint` class to build the product. This will ensure that mistakes are not made while building the iOS Jupita Callisto SDK.
+The available product under the iOS SDK is Jupita. Jupita can be constructed directly using the public constructor however it is highly recommended to use the `Touchpoint` class to build the product. This will ensure that mistakes are not made while building the iOS Jupita SDK.
 
 ```
 let token:String = “your-token”; 
