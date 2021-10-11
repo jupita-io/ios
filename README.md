@@ -28,15 +28,15 @@ Build Jupita, in the example below '2' has been used to represent the `touchpoin
 
 ```
 let token:String = “authentication token”; 
-let touchpoint = Touchpoint(token, "2")
+let touchpoint = Jupita(token, "2")
 ```
 
 #### Step 4
 
-Call the `dump` API as a message from Touchpoint by specifying the message and inputID – represented as '3' below;
+Call the `dump` API as a message from Jupita by specifying the message and inputID – represented as '3' below;
 
 ```
-touchpoint.dump(text: "Hello", inputID: "3", messageType:  touchpoint.TOUCHPOINT) { (result) -> Void in
+jupita.dump(text: "Hello", inputID: "3", messageType:  jupita.TOUCHPOINT) { (result) -> Void in
       switch result {
       case .success(let json):
         debugPrint(json)
@@ -52,7 +52,7 @@ Similarly, call the `dump` API whenever input responds back to the same touchpoi
 
 
 ```
-touchpoint.dump(text: "Hello", inputID: "3", messageType:  touchpoint.INPUT) { (result) -> Void in
+jupita.dump(text: "Hello", inputID: "3", messageType:  jupita.INPUT) { (result) -> Void in
       switch result {
       case .success(let json):
         debugPrint(json)
@@ -67,7 +67,7 @@ touchpoint.dump(text: "Hello", inputID: "3", messageType:  touchpoint.INPUT) { (
 
 ### Error handling
 
-The SDK throws one error, which occurs if the user input is not JSON compatible. This can be incorrect usage of strings when passed on to the Touchpoint methods. This error may also arise if the `messageType` set in the dump method is not 1 or 0.
+The SDK throws one error, which occurs if the user input is not JSON compatible. This can be incorrect usage of strings when passed on to the Jupita methods. This error may also arise if the `messageType` set in the dump method is not 1 or 0.
 
 ### Error codes 
 
@@ -83,12 +83,12 @@ The available product under the iOS SDK is Jupita. Jupita can be constructed dir
 
 ```
 let token:String = “your-token”; 
-let touchpoint = Touchpoint(token, "2")
+let touchpoint = Jupita(token, "2")
 ```
 
 
-This is needed for building the `URLSession` request. Next the token and touchpointId needs to be set.
-The built touchpoint can now be used to call `dump` methods asynchronously. The definitions for the `dump` methods are as follows;
+This is needed for building the `URLSession` request. Next the token and touchpointID needs to be set.
+Jupita can now be used to call `dump` methods asynchronously. The definitions for the `dump` methods are as follows;
 
 ```
 public func dump(text: String, inputID: String, messageType: Int, isCall: Bool, completionHandler: @escaping(_ result: Result<Any,Error>) -> Void?)
@@ -100,12 +100,8 @@ public func dump(text: String, inputID: String, completionHandler: @escaping(_ r
 public func dump(text: String, inputID: String) 
 ```
 
-If the values of `messageType` and `isCall` are not provided by default the values are considered `0` and `false`. Thus `text` and the `inputID` are essential when creating a dump request. To avoid illegal argument error use `touchpoint.TOUCHPOINT` or `touchpoint.INPUT` for `messageType`.
+If the values of `messageType` and `isCall` are not provided by default the values are considered `0` and `false`. Thus `text` and the `inputID` are essential when creating a dump request. To avoid illegal argument error use `jupita.TOUCHPOINT` or `jupita.INPUT` for `messageType`.
 
 ### Notes
 
-`completionHandler` is a callback which needs to be implemented to listen to the results of the API request. It will return the following for the respective APIs;
-
-1. The success event returns the rating as a double.
-2. The success event returns the feed for the whole week as a JSONObject.
-3. The success event returns the success message as well as the utterance rating as a double.
+`completionHandler` is a callback which needs to be implemented to listen to the results of the API request. It will return the success message as well as the utterance rating as a double.
