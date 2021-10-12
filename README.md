@@ -28,7 +28,7 @@ Build Jupita, in the example below '2' has been used to represent the `touchpoin
 
 ```
 let token:String = “authentication token”; 
-let Touchpoint = Touchpoint(token, "2")
+let touchpoint = Jupita(token, "2")
 ```
 
 #### Step 4
@@ -36,7 +36,7 @@ let Touchpoint = Touchpoint(token, "2")
 Call the `dump` API as a message from Jupita by specifying the message and inputID – represented as '3' below;
 
 ```
-touchpoint.dump(text: "Hello", inputID: "3", messageType:  touchpoint.TOUCHPOINT) { (result) -> Void in
+jupita.dump(text: "Hello", inputID: "3", messageType:  jupita.TOUCHPOINT) { (result) -> Void in
       switch result {
       case .success(let json):
         debugPrint(json)
@@ -52,7 +52,7 @@ Similarly, call the `dump` API whenever input responds back to the same touchpoi
 
 
 ```
-touchpoint.dump(text: "Hello", inputID: "3", messageType:  touchpoint.INPUT) { (result) -> Void in
+jupita.dump(text: "Hello", inputID: "3", messageType:  jupita.INPUT) { (result) -> Void in
       switch result {
       case .success(let json):
         debugPrint(json)
@@ -91,9 +91,9 @@ This is needed for building the `URLSession` request. Next the token and touchpo
 Jupita can now be used to call `dump` methods asynchronously. The definitions for the `dump` methods are as follows;
 
 ```
-public func dump(text: String, inputID: String, type: Int, isCall: Bool, completionHandler: @escaping(_ result: Result<Any,Error>) -> Void?)
+public func dump(text: String, inputID: String, messageType: Int, isCall: Bool, completionHandler: @escaping(_ result: Result<Any,Error>) -> Void?)
  
-public func dump(text: String, inputID: String, type: Int, completionHandler: @escaping(_ result: Result<Any,Error>) -> Void?)
+public func dump(text: String, inputID: String, messageType: Int, completionHandler: @escaping(_ result: Result<Any,Error>) -> Void?)
  
 public func dump(text: String, inputID: String, completionHandler: @escaping(_ result: Result<Any,Error>) -> Void?)
  
