@@ -33,10 +33,10 @@ let jupita = Jupita(token, "2")
 
 #### Step 4
 
-Call the `dump` API as a message from Jupita by specifying the message and inputID – represented as '3' below;
+Call the `dump` API as a message from Jupita by specifying the `type` and `inputID` – represented as '3' below;
 
 ```
-jupita.dump(text: "Hello", inputID: "3", type:  jupita.TOUCHPOINT) { (result) -> Void in
+jupita.dump(text: "Hello", inputID: "3", type: jupita.TOUCHPOINT) { (result) -> Void in
       switch result {
       case .success(let json):
         debugPrint(json)
@@ -48,11 +48,11 @@ jupita.dump(text: "Hello", inputID: "3", type:  jupita.TOUCHPOINT) { (result) ->
     }
 ```
 
-Similarly, call the `dump` API whenever input responds back to the same touchpoint by specifying the message and ID of the input;
+Similarly, call the `dump` API whenever input responds back to the same touchpoint by specifying the `type` and `inputID`;
 
 
 ```
-jupita.dump(text: "Hello", inputID: "3", type:  jupita.INPUT) { (result) -> Void in
+jupita.dump(text: "Hello", inputID: "3", type: jupita.INPUT) { (result) -> Void in
       switch result {
       case .success(let json):
         debugPrint(json)
