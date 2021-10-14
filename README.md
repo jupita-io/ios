@@ -52,7 +52,7 @@ Similarly, call the `dump` API whenever input responds back to the same touchpoi
 
 
 ```
-jupita.dump(text: "Hello", inputID: "3", type: jupita.INPUT) { (result) -> Void in
+jupita.dump(text: "Hello", inputID: "2", type: jupita.INPUT) { (result) -> Void in
       switch result {
       case .success(let json):
         debugPrint(json)
