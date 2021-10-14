@@ -119,3 +119,5 @@ If the values of `type` and `isCall` are not provided by default the values are 
 ### Notes
 
 `completionHandler` is a callback which needs to be implemented to listen to the results of the API request. It will return the success message as well as the utterance rating as a double.
+
+If you require additional support just hit us up at support@jupita.io 
