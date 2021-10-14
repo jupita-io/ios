@@ -33,7 +33,7 @@ let jupita = Jupita(token, "2")
 
 #### Step 4
 
-Call the `dump` API as a message from Jupita by specifying the `type` and `touchpointID` – represented as '3' below;
+Call the `dump` API as a message from Jupita by specifying the `type` and `inputID` – represented as '3' below;
 
 ```
 jupita.dump(text: "Hello", inputID: "3", type: jupita.TOUCHPOINT) { (result) -> Void in
