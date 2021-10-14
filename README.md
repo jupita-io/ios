@@ -52,7 +52,7 @@ Similarly, call the `dump` API whenever input responds back to the same touchpoi
 
 
 ```
-jupita.dump(text: "Hello", type: jupita.INPUT) { (result) -> Void in
+jupita.dump(text: "Hello", inputID: "3", type: jupita.INPUT) { (result) -> Void in
       switch result {
       case .success(let json):
         debugPrint(json)
@@ -67,7 +67,7 @@ jupita.dump(text: "Hello", type: jupita.INPUT) { (result) -> Void in
 The parameter `isCall` is required and set to false within the SDK. This tells Jupita whether or not the utterance is from an audio call. When dumping an utterance from an audio call, set the `isCall` parameter to `true`;
 
 ```
-jupita.dump(text: "Hello", type: jupita.INPUT, isCall: true) { (result) -> Void in
+jupita.dump(text: "Hello", inputID: "3", type: jupita.INPUT, isCall: true) { (result) -> Void in
       switch result {
       case .success(let json):
         debugPrint(json)
