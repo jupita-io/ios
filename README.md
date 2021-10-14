@@ -3,20 +3,20 @@
 This SDK is developed for iOS using Swift 5.4, and utilizes `URLSession` in order to create the required API call requests. This library will allow you to make the required `dump` API calls with Jupita. API call is made asynchronously, thus there are event listeners available to handle the API results.
 
 ## Overview
-Jupita is an API product that provides deep learning powered touchpoint analytics. Within the SDK documentation, `type` will simply refer to who is speaking. `type` 0 = `touchpoint`, and `type` 1 = `input`, although these labels are handled by the SDK.
+Jupita is an API product that provides deep learning powered touchpoint analytics. Within the SDK documentation, `type` refers to which user the utterance is from. `type` 0 = `touchpoint`, and `type` 1 = `input`, although these labels are handled by the SDK.
 
 The required parameters for the APIs include setting `type`, along with assigning an `touchpointID` + `inputID` to be passed - how this is structured or deployed is completely flexible and customizable. Please note when assigning the `touchpointID` that no data will be available for that particular touchpoint until the touchpoint has sent at least 1 utterance via the `dump` API. 
 
 ## APIs
 There is one API within the Jupita product – `dump`:
 
-- `Dump` allows you to dump each communication utterance.
+- `dump` allows you to dump each communication utterance.
 
 ### Quickstart
 
 #### Step 1
 
-Right Click on project name in the `Project Navigator` pane and select `Add Files to` option. Select the SDK folder `Jupita.framework` and make sure to keep `Copy items if needed` selected while adding. Now, click on project name under the `Targets` and select  `General` tab. Go to `Frameworks, Libraries, and Embedded Content` section, verify the framework is added correctly and make sure `Embed & Sign` option is selected.
+Right Click on project name in the `Project Navigator` pane and select `Add Files to` option. Select the SDK folder `Jupita.framework` and make sure to keep `Copy items if needed` selected while adding. Then click on project name under the `Targets` and select  `General` tab. Go to `Frameworks, Libraries, and Embedded Content` section, verify the framework is added correctly and make sure `Embed & Sign` option is selected.
 
 #### Step 2
 
@@ -33,7 +33,7 @@ let jupita = Jupita(token, "2")
 
 #### Step 4
 
-Call the `dump` API as a message from Jupita by specifying the `type` and `inputID` – represented as '3' below;
+Call the `dump` API as a message from Jupita by specifying the `type` and `touchpointID` – represented as '3' below;
 
 ```
 jupita.dump(text: "Hello", inputID: "3", type: jupita.TOUCHPOINT) { (result) -> Void in
@@ -64,6 +64,20 @@ jupita.dump(text: "Hello", inputID: "3", type: jupita.INPUT) { (result) -> Void 
     }
 ```
 
+The parameter `isCall` is required and set to false within the SDK. This tells Jupita whether or not the utterance is from an audio call. When dumping an utterance from an audio call, set the `isCall` parameter to `true`;
+
+```
+jupita.dump(text: "Hello", inputID: "3", type: jupita.TOUCHPOINT, true) { (result) -> Void in
+      switch result {
+      case .success(let json):
+        debugPrint(json)
+        break
+      case .failure(let error):
+        debugPrint(error)
+        break
+      }
+    }
+```
 
 ### Error handling
 
@@ -71,15 +85,15 @@ The SDK throws one error, which occurs if the user input is not JSON compatible.
 
 ### Error codes 
 
-Error codes thrown are 401 when the token is incorrect and 400 when there is an attempt to dump gibberish content to the server, although the model does have an inbuilt gibberish detector. 
+Error codes thrown are 401 when the token is incorrect.
 
 ### Libraries
 
-Use Step 1 and 2 so that the Jupita iOS SDK is available within the scope of the project. Currently the Jupita iOS SDK is dependent on `URLSession`.
+Use Step 1 and 2 so that the Jupita Swift SDK is available within the scope of the project. Currently the Jupita Swift SDK is dependent on `URLSession`.
 
 ### Classes
 
-The available product under the iOS SDK is Jupita. Jupita can be constructed directly using the public constructor however it is highly recommended to use the `Jupita` class to build the product. This will ensure that mistakes are not made while building the iOS Jupita SDK.
+The available product under the Swift SDK is Jupita. Jupita can be constructed directly using the public constructor however it is highly recommended to use the `Jupita` class to build the product. This will ensure that mistakes are not made while building the Jupita Swift SDK.
 
 ```
 let token:String = “your-token”; 
