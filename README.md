@@ -67,7 +67,7 @@ jupita.dump(text: "Hi, good thanks!", inputID: "3", type: jupita.INPUT) { (resul
 ## Error handling
 The SDK throws 2 errors:
 - JSONException which occurs if the user input is not json compatible. This can be incorrect usage of strings when passed on to the Jupita methods.
-- IllegalArgumentException which occurs if the `message_type` set in the dump method is not 1 or 0.
+- IllegalArgumentException which occurs if the `type` set in the dump method is not 1 or 0.
 
 
 ## Error codes
