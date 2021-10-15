@@ -1,4 +1,4 @@
-# Jupita iOS SDK
+# Jupita Swift SDK
 This SDK is developed for iOS using Swift 5.4, and utilizes `URLSession` in order to create the required API call requests. This library will allow you to make the required `dump` API calls with Jupita. API call is made asynchronously, thus there are event listeners available to handle the API results.
 
 
