@@ -11,7 +11,7 @@ The required parameters for the APIs include setting `type`, along with assignin
 ## APIs
 There is one API within the Jupita product – `dump`:
 
-- `dump` allows you to dump each communication utterance.
+- `dump` allows you to dump each utterance.
 
 
 ## Quickstart
