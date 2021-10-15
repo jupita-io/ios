@@ -3,7 +3,7 @@ This SDK is developed for iOS using Swift 5.4, and utilizes `URLSession` in orde
 
 
 ## Overview
-Jupita is an API product that provides deep learning powered touchpoint analytics. Within the SDK documentation, `type` refers to which user the utterance is from. `type` 0 = `touchpoint`, and `type` 1 = `input`, although these labels are handled by the SDK.
+Jupita is an API product that provides deep learning powered touchpoint analytics. Within the SDK documentation, `type` refers to which user the utterance is from. `type` 0 = `TOUCHPOINT`, and `type` 1 = `INPUT`, although these labels are handled by the SDK.
 
 The required parameters for the APIs include setting `type`, along with assigning an `touchpointID` + `inputID` to be passed - how this is structured or deployed is completely flexible and customizable. Please note when assigning the `touchpointID` that no data will be available for that particular touchpoint until the touchpoint has sent at least 1 utterance via the `dump` API. 
 
@@ -52,7 +52,7 @@ jupita.dump(text: "Hi, how are you?", inputID: "3", type: jupita.TOUCHPOINT, isC
 Similarly, call the dump API whenever dumping an utterance from an input by specifying the message text and ID of the input;
 
 ```
-jupita.dump(text: "Hi, good thanks!", inputID: "3", type: jupita.INPUT) { (result) -> Void in
+jupita.dump(text: "Hi, good thanks!", inputID: "3", type: jupita.INPUT, isCall: false) { (result) -> Void in
       switch result {
       case .success(let json):
         debugPrint(json)
