@@ -1,0 +1,10 @@
+framework module Jupita {
+  umbrella header "Jupita.h"
+
+  export *
+  module * { export * }
+}
+
+module Jupita.__Swift {
+    exclude header "Jupita-Swift.h"
+}
