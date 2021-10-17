@@ -24,10 +24,10 @@ Import the Jupita.framework into your class.
 
 
 ### Step 3
-Build Jupita. Insert your API key as the token as well as a touchpoint user ID. In the example below '2' represents the touchpoint_id;
+Build Jupita. Insert your API key as the token as well as a touchpoint user ID. In the example below '2' represents the touchpointID;
 
 ```
-let token:String = “authentication token”; 
+let token = "your-authentication-token"
 let jupita = Jupita(token, "2")
 ```
 
@@ -37,16 +37,16 @@ Dump an utterance from a touchpoint by calling the dump API as a message by spec
 The parameter `isCall` is required and set to false by default. This tells Jupita if the utterance is from an audio call. When dumping an utterance from an audio call, set the `isCall` parameter to `true` otherwise set to `false`;
 
 ```
-jupita.dump(text: "Hi, how are you?", inputID: "3", type: jupita.TOUCHPOINT, isCall: false) { (result) -> Void in
-      switch result {
-      case .success(let json):
-        debugPrint(json)
-        break
-      case .failure(let error):
-        debugPrint(error)
-        break
-      }
-    }
+jupita.dump(text: "Hi, how are you?", inputID: "3", type:  jupita.TOUCHPOINT, isCall: false) { (result) -> Void in
+            switch result {
+            case .success(let json):
+                debugPrint(json)
+                break
+            case .failure(let error):
+                debugPrint(error)
+                break
+            }
+        }
 ```
 
 Similarly, call the dump API whenever dumping an utterance from an input by specifying the message text and ID of the input;
@@ -82,7 +82,7 @@ Use Step 1 and 2 so that the Jupita Swift SDK is available within the scope of t
 The available product under the Swift SDK is Jupita. Jupita can be constructed directly using the public constructor however it is highly recommended to use the `Jupita` class to build the product. This will ensure that mistakes are not made while building the Jupita Swift SDK.
 
 ```
-let token:String = “your-token”; 
+let token = “your-authentication-token”; 
 let jupita = Jupita(token, "2")
 ```
 
