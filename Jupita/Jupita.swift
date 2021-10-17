@@ -12,8 +12,6 @@ public class Jupita {
     /// Parameters
     public var TOUCHPOINT: Int = 0
     public var INPUT: Int = 0
-    public var JUPITAV1: String = "JupitaV1"
-    // static var JUPITAV2: String = "JupitaV2"
     
     private var token: String = ""
     private var touchpointID: String = ""

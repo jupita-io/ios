@@ -13,8 +13,9 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let jupita = Jupita("ACCESS_TOKEN", "1")
-        jupita.dump(text: "Hello", inputID: "3", type:  jupita.TOUCHPOINT) { (result) -> Void in
+        let token = "your-authentication-token"
+        let jupita = Jupita(token, "2")
+        jupita.dump(text: "Hi, how are you?", inputID: "3", type:  jupita.TOUCHPOINT, isCall: false) { (result) -> Void in
             switch result {
             case .success(let json):
                 debugPrint(json)

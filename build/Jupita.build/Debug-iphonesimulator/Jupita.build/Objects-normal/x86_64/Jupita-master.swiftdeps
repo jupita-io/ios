@@ -1,6 +1,0 @@
-version: "Apple Swift version 5.3.2 (swiftlang-1200.0.45 clang-1200.0.32.28)"
-options: "4e585b05ffabdae49c383bdc5cb0eb30"
-build_time: [1634053936, 578755000]
-inputs:
-  "/Users/maulikbhuptani/Downloads/Jupita-iOS-Sourcecode/Jupita/Jupita.swift": [1634044422, 956343308]
-  "/Users/maulikbhuptani/Downloads/Jupita-iOS-Sourcecode/Jupita/Constants.swift": [1633413734, 0]
