@@ -24,7 +24,7 @@ Import the Jupita.framework into your class.
 
 
 ### Step 3
-Build Jupita. Insert your API key as the token as well as a touchpoint user ID. In the example below '2' represents the touchpointID;
+Build Jupita. Insert your API key as the token as well as a touchpoint user ID. In the example below '2' represents the touchpoint_id;
 
 ```
 let token = "your-authentication-token"
