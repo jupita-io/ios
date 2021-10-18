@@ -1,11 +1,11 @@
 # Jupita Swift SDK
-This SDK is developed for iOS using Swift 5.4, and utilizes `URLSession` in order to create the required API call requests. This library will allow you to make the required `dump` API calls with Jupita. API call is made asynchronously, thus there are event listeners available to handle the API results.
+This SDK is developed for iOS using Swift 5.4 and utilizes `URLSession` in order to create the required API call requests. This library will allow you to make the required `dump` API calls with Jupita. API call is made asynchronously, thus there are event listeners available to handle the API results.
 
 
 ## Overview
-Jupita is an API product that provides deep learning powered touchpoint analytics. Within the SDK documentation, `type` refers to which user the utterance is from. `type` 0 = `TOUCHPOINT`, and `type` 1 = `INPUT`, although these labels are handled by the SDK.
+Jupita is an API product that provides deep learning powered touchpoint analytics. Within the SDK documentation, `type` refers to which user the utterance is from. `type` 0 = `TOUCHPOINT` and `type` 1 = `INPUT`, although these labels are handled by the SDK.
 
-The required parameters for the APIs include setting `type`, along with assigning an `touchpointID` + `inputID` to be passed - how this is structured or deployed is completely flexible and customizable. Please note when assigning the `touchpointID` that no data will be available for that particular touchpoint until the touchpoint has sent at least 1 utterance via the `dump` API. 
+The required parameters for the APIs include setting `type` along with assigning a `touchpointID` + `inputID` to be passed, how this is structured or deployed is completely flexible and customizable. Please note when assigning the `touchpointID` that no data will be available for that particular touchpoint until the touchpoint has sent at least 1 utterance via the `dump` API. 
 
 
 ## APIs
@@ -37,7 +37,7 @@ Dump an utterance from a touchpoint by calling the dump API as a message by spec
 The parameter `isCall` is required and set to false by default. This tells Jupita if the utterance is from an audio call. When dumping an utterance from an audio call, set the `isCall` parameter to `true` otherwise set to `false`;
 
 ```
-jupita.dump(text: "Hi, how are you?", inputID: "3", type:  jupita.TOUCHPOINT, isCall: false) { (result) -> Void in
+jupita.dump(text: "Hi, how are you?", inputID: "3", type: jupita.TOUCHPOINT, isCall: false) { (result) -> Void in
             switch result {
             case .success(let json):
                 debugPrint(json)
@@ -65,13 +65,9 @@ jupita.dump(text: "Hi, good thanks!", inputID: "3", type: jupita.INPUT, isCall: 
 ```
 
 ## Error handling
-The SDK throws 2 errors:
-- JSONException which occurs if the user input is not json compatible. This can be incorrect usage of strings when passed on to the Jupita methods.
-- IllegalArgumentException which occurs if the `type` set in the dump method is not 1 or 0.
-
-
-## Error codes
-Error codes thrown are 401 when the token is incorrect, otherwise Jupita returns error 400 with details.
+- `JSONException` which occurs if the user input is not JSON compatible. This can be incorrect usage of strings when passed on to the Jupita methods.
+- `IllegalArgumentException` which occurs if the `type` set in the dump method is not 1 or 0.
+- Error codes thrown are 401 when the token is incorrect, otherwise Jupita returns error 400 with details.
 
 
 ## Libraries
@@ -104,4 +100,5 @@ If the values of `type` and `isCall` are not provided by default the values are 
 
 `completionHandler` is a callback which needs to be implemented to listen to the results of the API request. It will return the success message as well as the utterance rating as a double.
 
+## Support
 If you require additional support please contact support@jupita.io
