@@ -96,7 +96,7 @@ public func dump(text: String, inputID: String, completionHandler: @escaping(_ r
 public func dump(text: String, inputID: String) 
 ```
 
-If the values of `type` and `isCall` are not provided by default the values are considered `0` and `false`. Thus `text` and the `inputID` are essential when creating a dump request. To avoid illegal argument error use `jupita.TOUCHPOINT` or `jupita.INPUT` for `type`.
+If the values of `type` and `isCall` are not provided the values are considered as `jupita.TOUCHPOINT` and `false` by default. Thus `text` and the `inputID` are essential when creating a dump request. To avoid illegal argument error use `jupita.TOUCHPOINT` or `jupita.INPUT` for `type`.
 
 `completionHandler` is a callback which needs to be implemented to listen to the results of the API request. It will return the success message as well as the utterance rating as a double.
 
