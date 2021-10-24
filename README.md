@@ -7,6 +7,7 @@ Jupita is an API product that provides deep learning powered touchpoint analytic
 
 The required parameters for the APIs include setting `type` along with assigning a `touchpointID` + `inputID` to be passed, how this is structured or deployed is completely flexible and customizable. Please note when assigning the `touchpointID` that no data will be available for that particular touchpoint until the touchpoint has sent at least 1 utterance via the `dump` API. 
 
+When sending an initial touchpoint utterance with no known input_id, for example when creating an initial Twitter post, simply pass a nominal input_id, such as 0 for instance.
 
 ## APIs
 There is one API within the Jupita product – `dump`:
