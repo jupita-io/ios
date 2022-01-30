@@ -5,6 +5,8 @@ This SDK is developed for iOS using Swift 5.4 and utilizes `URLSession` in order
 ## Overview
 Jupita is an API product that provides omnichannel communications analytics. Within the SDK documentation, `type` refers to which user the utterance is from. `type` 0 = `TOUCHPOINT` and `type` 1 = `INPUT` although these labels are handled by the SDK.
 
+Within the dashboard UI touchpoints are referred to as 'channels', and inputs are referred to as 'customers'.
+
 The required parameters for the APIs include setting `type` along with assigning a `touchpointID` + `inputID` to be passed. Please note when assigning the `touchpointID` that no data will be available for that particular touchpoint until the touchpoint has sent at least 1 utterance via the `dump` API. 
 
 You may set any `TOUCHPOINT` or `INPUT` ID format within the confines of JSON. How this is structured or deployed is completely customisable, for example, you may wish to use full names for users from your database, or you may wish to apply sequencing numbers for `INPUT` users where the user is not known. 
