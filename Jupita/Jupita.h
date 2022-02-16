@@ -1,10 +1,3 @@
-//
-//  Jupita.h
-//  Jupita
-//
-//  Created by Gagan on 21/05/21.
-//
-
 #import <Foundation/Foundation.h>
 
 //! Project version number for Jupita.
