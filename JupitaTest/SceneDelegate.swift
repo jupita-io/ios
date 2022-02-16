@@ -1,10 +1,3 @@
-//
-//  SceneDelegate.swift
-//  JupitaTest
-//
-//  Created by Gagan on 22/05/21.
-//
-
 import UIKit
 
 @available(iOS 13.0, *)
