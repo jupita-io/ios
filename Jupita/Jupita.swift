@@ -1,10 +1,3 @@
-//
-//  Jupita.swift
-//  Jupita
-//
-//  Created by Gagan on 21/05/21.
-//
-
 import Foundation
 
 public class Jupita {
@@ -30,38 +23,39 @@ public class Jupita {
     }
     
     
-    public func dump(text: String, inputID: String) {
-        self.dumpRequest(text: text, inputID: inputID, isCall: false) { _ in
+    public func dump(text: String, inputID: String, channelTYPE: String) {
+        self.dumpRequest(text: text, inputID: inputID, channelTYPE: channelTYPE, isCall: false) { _ in
         }
     }
     
-    public func dump(text: String, inputID: String, completionHandler: @escaping(_ result: Result<Any,Error>) -> Void?) {
-        self.dumpRequest(text: text, inputID: inputID, isCall: false) { (result) -> Void? in
+    public func dump(text: String, inputID: String, channelTYPE: String, completionHandler: @escaping(_ result: Result<Any,Error>) -> Void?) {
+        self.dumpRequest(text: text, inputID: inputID, channelTYPE: channelTYPE, isCall: false) { (result) -> Void? in
             completionHandler(result)
         }
     }
     
-    public func dump(text: String, inputID: String, type: Int, completionHandler: @escaping(_ result: Result<Any,Error>) -> Void?) {
-        self.dumpRequest(text: text, inputID: inputID, type: type, isCall: false) { (result) -> Void? in
+    public func dump(text: String, inputID: String, channelTYPE: String, type: Int, completionHandler: @escaping(_ result: Result<Any,Error>) -> Void?) {
+        self.dumpRequest(text: text, inputID: inputID, channelTYPE: channelTYPE, type: type, isCall: false) { (result) -> Void? in
             completionHandler(result)
         }
     }
     
-    public func dump(text: String, inputID: String, type: Int, isCall: Bool, completionHandler: @escaping(_ result: Result<Any,Error>) -> Void?) {
-        self.dumpRequest(text: text, inputID: inputID, type: type, isCall: isCall) { (result) -> Void? in
+    public func dump(text: String, inputID: String, channelTYPE: String, type: Int, isCall: Bool, completionHandler: @escaping(_ result: Result<Any,Error>) -> Void?) {
+        self.dumpRequest(text: text, inputID: inputID, channelTYPE: channelTYPE, type: type, isCall: isCall) { (result) -> Void? in
             completionHandler(result)
         }
     }
     
     ///Private Methods
-    private func dumpRequest(text: String, inputID: String, type: Int = 0, isCall: Bool, completionHandler: @escaping(_ result: Result<Any,Error>) -> Void?) {
+    private func dumpRequest(text: String, inputID: String, channelTYPE: String, type: Int = 0, isCall: Bool, completionHandler: @escaping(_ result: Result<Any,Error>) -> Void?) {
         if(type != self.TOUCHPOINT && type != self.INPUT){
-            completionHandler(.failure(NSError(domain:"Use either TouchPoint or Input type", code:401, userInfo:nil)))
+            completionHandler(.failure(NSError(domain:"You must enter Touchpoint or Input type", code:401, userInfo:nil)))
         }
         
         let parameters = ["token": self.token,
                           "touchpoint_id": self.touchpointID,
                           "input_id" : inputID,
+                          "channel_type" : channelTYPE,
                           "message_type" : type,
                           "text" : text,
                           "isCall" : isCall] as [String : Any]
