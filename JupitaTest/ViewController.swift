@@ -1,10 +1,3 @@
-//
-//  ViewController.swift
-//  JupitaTest
-//
-//  Created by Gagan on 22/05/21.
-//
-
 import UIKit
 import Jupita
 
@@ -15,7 +8,7 @@ class ViewController: UIViewController {
         
         let token = "your-authentication-token"
         let jupita = Jupita(token, "2")
-        jupita.dump(text: "Hi, how are you?", inputID: "3", type:  jupita.TOUCHPOINT, isCall: false) { (result) -> Void in
+        jupita.dump(text: "Hi, how are you?", inputID: "3", channelTYPE: "Web chat", type:  jupita.TOUCHPOINT, isCall: false) { (result) -> Void in
             switch result {
             case .success(let json):
                 debugPrint(json)
