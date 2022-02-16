@@ -1,10 +1,3 @@
-//
-//  Constants.swift
-//  Jupita
-//
-//  Created by Gagan on 22/05/21.
-//
-
 import Foundation
 
 
