@@ -3,7 +3,7 @@ This SDK is developed for iOS using Swift 5.4 and utilizes `URLSession` in order
 
 
 ## Overview
-Jupita is an API product that provides omnichannel communications analytics. Within the SDK documentation, `type` refers to which user the utterance is from. `type` 0 = `TOUCHPOINT` and `type` 1 = `INPUT` although these labels are handled by the SDK.
+Jupita is an API product that provides omnichannel communications analytics using OAuth 2.0 authorisation. Within the SDK documentation, `type` refers to which user the utterance is from. `type` 0 = `TOUCHPOINT` and `type` 1 = `INPUT` although these labels are handled by the SDK.
 
 Within the dashboard UI touchpoints are referred to as 'channels', and inputs are referred to as 'customers'.
 
